@@ -223,6 +223,8 @@
           try { v.load(); } catch {}
         };
         v.addEventListener("pointerenter", armLoad, { once: true });
+        v.addEventListener("pointerdown", armLoad, { once: true });
+        v.addEventListener("touchstart", armLoad, { once: true });
         v.addEventListener("focus", armLoad, { once: true });
 
         v.addEventListener("loadedmetadata", () => {
