@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LAN Player — Admin</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body data-role="admin">
+  <header class="topbar">
+    <div class="brand">LAN Player</div>
+    <div class="status">
+      <span id="wsStatus" class="pill">WS: ...</span>
+      <span id="peers" class="pill">clients: 0</span>
+      <span id="playState" class="pill">stopped</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <h2>Загрузка</h2>
+      <div class="row">
+        <input id="fileInput" type="file" multiple />
+        <button id="refreshMedia" class="btn">Обновить</button>
+      </div>
+      <div id="uploadLog" class="log"></div>
+
+      <h2>Медиа</h2>
+      <div id="mediaList" class="list"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Плейлист</h2>
+      <div class="row">
+        <button id="savePlaylist" class="btn">Сохранить</button>
+        <button id="playBtn" class="btn primary">Play</button>
+        <button id="stopBtn" class="btn danger">Stop</button>
+        <button id="fsHintBtn" class="btn">Подсказать fullscreen</button>
+        <button id="fsHintClearBtn" class="btn">Убрать подсказку</button>
+      </div>
+      <div class="hint">
+        Картинки показываются по времени (сек), видео — до конца. Клиенты не перезагружают страницу: старт/стоп по WS.
+      </div>
+      <div id="playlistList" class="list"></div>
+
+      <h2>Ошибки</h2>
+      <div id="errors" class="log"></div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

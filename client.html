@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LAN Player — Client</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body data-role="client">
+  <div id="stage" class="stage">
+    <img id="img" class="media hidden" alt="" />
+    <video id="vid" class="media hidden" playsinline></video>
+
+    <div id="overlay" class="overlay">
+      <div class="overlayBox">
+        <div class="overlayTitle">Клиент готов</div>
+        <div class="overlayText">
+          Нажми кнопку ниже один раз (это нужно браузеру), потом админ сможет запускать плейлист без перезагрузки страницы.
+        </div>
+        <div class="row">
+          <button id="enableBtn" class="btn primary">Включить (fullscreen + autoplay)</button>
+        </div>
+        <div class="overlaySmall" id="overlaySmall">WS: ...</div>
+      </div>
+    </div>
+
+    <div class="hud" id="hud">
+      <span id="hudWs" class="pill">WS: ...</span>
+      <span id="hudState" class="pill">stopped</span>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
