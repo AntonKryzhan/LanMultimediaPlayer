@@ -213,17 +213,23 @@
         v.className = "thumb";
         v.muted = true;
         v.playsInline = true;
-        v.preload = "metadata";
+        v.preload = "none";
         v.controls = false;
         v.disablePictureInPicture = true;
 
-        v.dataset.src = url;
+        const armLoad = () => {
+          if (v.src) return;
+          v.src = url;
+          try { v.load(); } catch {}
+        };
+        v.addEventListener("pointerenter", armLoad, { once: true });
+        v.addEventListener("pointerdown", armLoad, { once: true });
+        v.addEventListener("touchstart", armLoad, { once: true });
+        v.addEventListener("focus", armLoad, { once: true });
 
         v.addEventListener("loadedmetadata", () => {
           try { v.currentTime = 0.1; } catch {}
         }, { once: true });
-
-        observeVideoPreview(v);
         return v;
       }
 
